@@ -31,7 +31,6 @@ class Login extends React.Component {
         <button
           type="button"
           disabled={ !(regex.test(email) && senha.length >= SEIS) }
-
         >
           Entrar
         </button>
