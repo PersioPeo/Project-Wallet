@@ -1,11 +1,11 @@
 // Esse reducer será responsável por tratar as informações da pessoa usuária
-const ESTADO_INICIAL = {
+const INITIAL_STATE = {
 
   email: '',
 
 };
 
-const userReducer = (state = ESTADO_INICIAL, action) => {
+const userReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
   case 'SALVAR_EMAIL':
     return {
