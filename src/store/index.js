@@ -1,3 +1,4 @@
+/* eslint-disable eol-last */
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
@@ -9,5 +10,4 @@ const store = createStore(
     applyMiddleware(thunk),
   ),
 );
-
 export default store;
