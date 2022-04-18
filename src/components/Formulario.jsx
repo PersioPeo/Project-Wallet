@@ -11,12 +11,11 @@ class Formulario extends React.Component {
       moeda: 'USD',
       metodo: 'Dinheiro',
       categoria: 'Alimentação',
-      descricao: '',
     };
   }
 
   render() {
-    const { vlDespesa, descDespesa, moeda, metodo, categoria, descricao } = this.state;
+    const { vlDespesa, descDespesa, moeda, metodo, categoria } = this.state;
     const { moedaGlobal } = this.props;
 
     return (
@@ -76,7 +75,6 @@ class Formulario extends React.Component {
             <option value="Saúde">Saúde</option>
           </select>
         </label>
-        
         <button type="submit">
           Adicionar despesa
         </button>
@@ -92,7 +90,6 @@ Formulario.propTypes = {
   moeda: propTypes.string,
   metodo: propTypes.string,
   categoria: propTypes.string,
-  descricao: propTypes.string,
   moedaGlobal: propTypes.shape(propTypes.string),
 }.isRequired;
 
