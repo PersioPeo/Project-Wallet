@@ -1,6 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { salvaForm } from '../actions';
 
 class Formulario extends React.Component {
   constructor(props) {
@@ -11,7 +12,42 @@ class Formulario extends React.Component {
       moeda: 'USD',
       metodo: 'Dinheiro',
       categoria: 'Alimentação',
+      id: '0',
+
     };
+  }
+
+  fetchMoeda = async () => {
+    const data = await (await fetch('https://economia.awesomeapi.com.br/json/all')).json();
+    return data;
+  }
+
+  salvaDespGlob = async () => {
+    const exchangeRates = await this.fetchMoeda();
+    const { myDispatch } = this.props;
+    const { id,
+      vlDespesa,
+      descDespesa,
+      moeda,
+      metodo,
+      categoria } = this.state;
+    myDispatch({
+      id,
+      vlDespesa,
+      descDespesa,
+      moeda,
+      metodo,
+      categoria,
+      exchangeRates,
+
+    });
+    this.setState({
+      vlDespesa: 0,
+      descDespesa: '',
+    });
+    this.setState((prev) => ({
+      id: prev.id + 1,
+    }));
   }
 
   render() {
@@ -75,7 +111,10 @@ class Formulario extends React.Component {
             <option value="Saúde">Saúde</option>
           </select>
         </label>
-        <button type="submit">
+        <button
+          type="submit"
+          onClick={ this.salvaDespGlob }
+        >
           Adicionar despesa
         </button>
       </forms>
@@ -90,11 +129,15 @@ Formulario.propTypes = {
   moeda: propTypes.string,
   metodo: propTypes.string,
   categoria: propTypes.string,
+  id: propTypes.string,
   moedaGlobal: propTypes.shape(propTypes.string),
 }.isRequired;
 
 const mapStateToProps = (state) => ({
   moedaGlobal: state.wallet.currencies,
 });
+const mapDispatchToProps = (dispatch) => ({
+  myDispatch: (state) => dispatch(salvaForm(state)),
+});
 
-export default connect(mapStateToProps)(Formulario);
+export default connect(mapStateToProps, mapDispatchToProps)(Formulario);

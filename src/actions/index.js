@@ -12,3 +12,10 @@ export const pegarMoeda = (payload) => ({
   type: PEGAR_MOEDA,
   payload,
 });
+
+export const SALVA_FORM = 'SALVA_FORM';
+
+export const salvaForm = (payload) => ({
+  type: SALVA_FORM,
+  payload,
+});
