@@ -16,5 +16,4 @@ const userReducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-// eslint-disable-next-line eol-last
 export default userReducer;
