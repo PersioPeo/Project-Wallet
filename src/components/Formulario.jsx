@@ -55,12 +55,20 @@ class Formulario extends React.Component {
         <input
           data-testid="value-input"
           value={ value }
-          onChange={ ({ target: { value: valor } }) => this.setState({ value: valor }) }
+          onChange={ (
+            { target: { value: valor } },
+          ) => this.setState(
+            { value: valor },
+          ) }
         />
         <input
           data-testid="description-input"
           value={ description }
-          onChange={ ({ target: { value: valor } }) => this.setState({ description: valor }) }
+          onChange={ (
+            { target: { value: valor } },
+          ) => this.setState(
+            { description: valor },
+          ) }
         />
         <label htmlFor="currency">
           Moeda
@@ -69,7 +77,11 @@ class Formulario extends React.Component {
             id="currency"
             data-testid="currency-input"
             value={ currency }
-            onChange={ ({ target: { value: valor } }) => this.setState({ currency: valor }) }
+            onChange={ (
+              { target: { value: valor } },
+            ) => this.setState(
+              { currency: valor },
+            ) }
           >
             {moedaGlobal.map((item, key) => <option key={ key }>{ item }</option>)}
 
@@ -83,7 +95,11 @@ class Formulario extends React.Component {
             id="method"
             data-testid="method-input"
             value={ method }
-            onChange={ ({ target: { value: valor } }) => this.setState({ method: valor }) }
+            onChange={ (
+              { target: { value: valor } },
+            ) => this.setState(
+              { method: valor },
+            ) }
           >
             <option value="Dinheiro">Dinheiro</option>
             <option value="Cartão de crédito">Cartão de crédito</option>
@@ -97,7 +113,11 @@ class Formulario extends React.Component {
             id="tag"
             data-testid="tag-input"
             value={ tag }
-            onChange={ ({ target: { value: valor } }) => this.setState({ tag: valor }) }
+            onChange={ (
+              { target: { value: valor } },
+            ) => this.setState(
+              { tag: valor },
+            ) }
           >
             <option value="Alimentação">Alimentação</option>
             <option value="Lazer">Lazer</option>
