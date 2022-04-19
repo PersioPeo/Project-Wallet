@@ -2,6 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { salvaForm } from '../actions';
+import './Formulario.css';
 
 class Formulario extends React.Component {
   constructor(props) {
@@ -50,90 +51,102 @@ class Formulario extends React.Component {
     const { moedaGlobal } = this.props;
 
     return (
-      <forms onSubmit={ (e) => e.preventDefault() }>
-
-        <input
-          data-testid="value-input"
-          value={ value }
-          onChange={ (
-            { target: { value: valor } },
-          ) => this.setState(
-            { value: valor },
-          ) }
-        />
-        <input
-          data-testid="description-input"
-          value={ description }
-          onChange={ (
-            { target: { value: valor } },
-          ) => this.setState(
-            { description: valor },
-          ) }
-        />
-        <label htmlFor="currency">
-          Moeda
-          <select
-            name="currency"
-            id="currency"
-            data-testid="currency-input"
-            value={ currency }
+      <forms onSubmit={ (e) => e.preventDefault() } className="container">
+        <div>
+          <input
+            data-testid="value-input"
+            placeholder="Valor"
+            name="value"
+            value={ value }
             onChange={ (
               { target: { value: valor } },
             ) => this.setState(
-              { currency: valor },
+              { value: valor },
             ) }
-          >
-            {moedaGlobal.map((item, key) => <option key={ key }>{ item }</option>)}
-
-          </select>
-        </label>
-
-        <label htmlFor="method">
-          Método de Pagamento
-          <select
-            name="method"
-            id="method"
-            data-testid="method-input"
-            value={ method }
+          />
+        </div>
+        <div>
+          <input
+            data-testid="description-input"
+            placeholder="Desc"
+            value={ description }
             onChange={ (
               { target: { value: valor } },
             ) => this.setState(
-              { method: valor },
+              { description: valor },
             ) }
+          />
+        </div>
+        <div>
+          <label htmlFor="currency">
+            Moeda
+            <select
+              name="currency"
+              id="currency"
+              data-testid="currency-input"
+              value={ currency }
+              onChange={ (
+                { target: { value: valor } },
+              ) => this.setState(
+                { currency: valor },
+              ) }
+            >
+              {moedaGlobal.map((item, key) => <option key={ key }>{ item }</option>)}
+
+            </select>
+          </label>
+        </div>
+        <div>
+          <label htmlFor="method">
+            Método de Pagamento
+            <select
+              name="method"
+              id="method"
+              data-testid="method-input"
+              value={ method }
+              onChange={ (
+                { target: { value: valor } },
+              ) => this.setState(
+                { method: valor },
+              ) }
+            >
+              <option value="Dinheiro">Dinheiro</option>
+              <option value="Cartão de crédito">Cartão de crédito</option>
+              <option value="Cartão de débito">Cartão de débito</option>
+            </select>
+          </label>
+        </div>
+        <div>
+          <label htmlFor="tag">
+            Método de Pagamento
+            <select
+              name="tag"
+              id="tag"
+              data-testid="tag-input"
+              value={ tag }
+              onChange={ (
+                { target: { value: valor } },
+              ) => this.setState(
+                { tag: valor },
+              ) }
+            >
+              <option value="Alimentação">Alimentação</option>
+              <option value="Lazer">Lazer</option>
+              <option value="Trabalho">Trabalho</option>
+              <option value="Transporte">Transporte</option>
+              <option value="Saúde">Saúde</option>
+            </select>
+          </label>
+        </div>
+        <div>
+          <button
+            type="submit"
+            onClick={ this.salvaDespGlob }
           >
-            <option value="Dinheiro">Dinheiro</option>
-            <option value="Cartão de crédito">Cartão de crédito</option>
-            <option value="Cartão de débito">Cartão de débito</option>
-          </select>
-        </label>
-        <label htmlFor="tag">
-          Método de Pagamento
-          <select
-            name="tag"
-            id="tag"
-            data-testid="tag-input"
-            value={ tag }
-            onChange={ (
-              { target: { value: valor } },
-            ) => this.setState(
-              { tag: valor },
-            ) }
-          >
-            <option value="Alimentação">Alimentação</option>
-            <option value="Lazer">Lazer</option>
-            <option value="Trabalho">Trabalho</option>
-            <option value="Transporte">Transporte</option>
-            <option value="Saúde">Saúde</option>
-          </select>
-        </label>
-        <button
-          type="submit"
-          onClick={ this.salvaDespGlob }
-        >
-          Adicionar despesa
-        </button>
+            Adicionar despesa
+          </button>
+        </div>
       </forms>
-
     );
   }
 }

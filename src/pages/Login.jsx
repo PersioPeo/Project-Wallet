@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import { salvarEmail } from '../actions';
+import './Login.css';
 
 class Login extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class Login extends React.Component {
     const SEIS = 6;
     const regex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
     return (
-      <div>
+      <div className="container">
         <input
           data-testid="email-input"
           placeholder="Email"
