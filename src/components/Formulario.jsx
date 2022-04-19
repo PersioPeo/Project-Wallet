@@ -2,7 +2,6 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { salvaForm } from '../actions';
-import './Formulario.css';
 
 class Formulario extends React.Component {
   constructor(props) {
