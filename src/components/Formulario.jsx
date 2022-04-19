@@ -7,12 +7,12 @@ class Formulario extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      vlDespesa: '',
-      descDespesa: '',
-      moeda: 'USD',
-      metodo: 'Dinheiro',
-      categoria: 'Alimentação',
-      id: '0',
+      value: '',
+      description: '',
+      currency: 'USD',
+      method: 'Dinheiro',
+      tag: 'Alimentação',
+      id: 0,
 
     };
   }
@@ -25,25 +25,20 @@ class Formulario extends React.Component {
   salvaDespGlob = async () => {
     const exchangeRates = await this.fetchMoeda();
     const { myDispatch } = this.props;
-    const { id,
-      vlDespesa,
-      descDespesa,
-      moeda,
-      metodo,
-      categoria } = this.state;
+    const { id, value, description, currency, method, tag } = this.state;
     myDispatch({
       id,
-      vlDespesa,
-      descDespesa,
-      moeda,
-      metodo,
-      categoria,
+      value,
+      description,
+      currency,
+      method,
+      tag,
       exchangeRates,
 
     });
     this.setState({
-      vlDespesa: 0,
-      descDespesa: '',
+      value: 0,
+      description: '',
     });
     this.setState((prev) => ({
       id: prev.id + 1,
@@ -51,7 +46,7 @@ class Formulario extends React.Component {
   }
 
   render() {
-    const { vlDespesa, descDespesa, moeda, metodo, categoria } = this.state;
+    const { value, description, currency, method, tag } = this.state;
     const { moedaGlobal } = this.props;
 
     return (
@@ -59,13 +54,13 @@ class Formulario extends React.Component {
 
         <input
           data-testid="value-input"
-          value={ vlDespesa }
-          onChange={ ({ target: { value } }) => this.setState({ vlDespesa: value }) }
+          value={ value }
+          onChange={ ({ target: { value: valor } }) => this.setState({ value: valor }) }
         />
         <input
           data-testid="description-input"
-          value={ descDespesa }
-          onChange={ ({ target: { value } }) => this.setState({ descDespesa: value }) }
+          value={ description }
+          onChange={ ({ target: { value: valor } }) => this.setState({ description: valor }) }
         />
         <label htmlFor="currency">
           Moeda
@@ -73,8 +68,8 @@ class Formulario extends React.Component {
             name="currency"
             id="currency"
             data-testid="currency-input"
-            value={ moeda }
-            onChange={ ({ target: { value } }) => this.setState({ moeda: value }) }
+            value={ currency }
+            onChange={ ({ target: { value: valor } }) => this.setState({ currency: valor }) }
           >
             {moedaGlobal.map((item, key) => <option key={ key }>{ item }</option>)}
 
@@ -87,8 +82,8 @@ class Formulario extends React.Component {
             name="method"
             id="method"
             data-testid="method-input"
-            value={ metodo }
-            onChange={ ({ target: { value } }) => this.setState({ metodo: value }) }
+            value={ method }
+            onChange={ ({ target: { value: valor } }) => this.setState({ method: valor }) }
           >
             <option value="Dinheiro">Dinheiro</option>
             <option value="Cartão de crédito">Cartão de crédito</option>
@@ -101,8 +96,8 @@ class Formulario extends React.Component {
             name="tag"
             id="tag"
             data-testid="tag-input"
-            value={ categoria }
-            onChange={ ({ target: { value } }) => this.setState({ categoria: value }) }
+            value={ tag }
+            onChange={ ({ target: { value: valor } }) => this.setState({ tag: valor }) }
           >
             <option value="Alimentação">Alimentação</option>
             <option value="Lazer">Lazer</option>
@@ -126,9 +121,9 @@ class Formulario extends React.Component {
 Formulario.propTypes = {
   currencies: propTypes.shape(propTypes.string),
   email: propTypes.string,
-  moeda: propTypes.string,
-  metodo: propTypes.string,
-  categoria: propTypes.string,
+  currency: propTypes.string,
+  method: propTypes.string,
+  tag: propTypes.string,
   id: propTypes.string,
   moedaGlobal: propTypes.shape(propTypes.string),
 }.isRequired;
