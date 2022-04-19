@@ -50,7 +50,7 @@ class Tabela extends React.Component {
                   >
                     Editar/Excluir
                   </button>
-                  
+
                 </td>
               </tr>
             ))}
