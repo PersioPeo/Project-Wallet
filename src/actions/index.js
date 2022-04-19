@@ -19,3 +19,9 @@ export const salvaForm = (payload) => ({
   type: SALVA_FORM,
   payload,
 });
+export const DELETA_DESPESA = 'DELETA_DESPESA';
+
+export const deletaDespesa = (payload) => ({
+  type: DELETA_DESPESA,
+  payload,
+});
