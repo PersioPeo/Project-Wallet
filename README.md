@@ -1,6 +1,6 @@
-# Habilidades
+## Habilidades
 
-Neste projeto nos verificamos os conceitos da utilização do React e Redux:
+## Neste projeto nos verificamos os conceitos da utilização do React e Redux:
 ---
 
 - Na criar um store Redux em aplicações React
