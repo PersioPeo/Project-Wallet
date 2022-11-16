@@ -1,10 +1,18 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+# Habilidades
+
+Neste projeto nos verificamos os conceitos da utilização do React e Redux:
+---
+
+- Na criar um store Redux em aplicações React
+
+- Na criar reducers no Redux em aplicações React
+
+- Na criar actions no Redux em aplicações React
+
+- Na criar dispatchers no Redux em aplicações React
+
+-  Na conectar Redux aos componentes React
+
+- Na criar actions assíncronas na sua aplicação React que faz uso de Redux.
+
+---
